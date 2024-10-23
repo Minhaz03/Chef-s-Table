@@ -1,5 +1,6 @@
 import Banner from "./Components/Banner/Banner";
 import Header from "./Components/Header/Header";
+import OurReciepe from "./Components/Our_Reciepe/OurReciepe";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Banner></Banner>
 
         {/* recipe sections */}
-
+        <OurReciepe></OurReciepe>
         
       </section>
     </>

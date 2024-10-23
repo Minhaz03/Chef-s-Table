@@ -20,7 +20,7 @@ const Header = () => {
           <input
             type="text"
             placeholder="Search"
-            className="py-4 px-10 bg-gray-100 rounded-full placeholder-gray-800 outline-none"
+            className="py-4 px-7 bg-gray-100 rounded-full placeholder-gray-800 outline-none"
           />
           <div className="absolute inset-y-0 -left-1 pl-4 flex items-center">
             <i className="fa-solid fa-magnifying-glass"></i>
