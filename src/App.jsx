@@ -7,6 +7,9 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 
 function App() {
   const [recipeClick, setRecipeClick] = useState([]);
+  const [preparedRecipe, setPreparedRecipe] = useState([]);
+  const [totalTime, setTotalTime] = useState(0);
+  const [totalCalories, setTotalCalories] = useState(0);
 
   const addRecipeOnClick = recipes => {
     const isExist = recipeClick.find(previousRecipe => previousRecipe.recipe_id === recipes.recipe_id)
@@ -18,7 +21,20 @@ function App() {
     }
   }
 
-  console.log(recipeClick)
+  const handleRemove = id => {
+    // find which recipe to remove
+    const deletedRecipe = recipeClick.find(recipe => recipe.recipe_id === id);
+
+    // remove from want to cook table
+    const updatedQueue = recipeClick.filter(recipe => recipe.recipe_id !== id);
+    setRecipeClick(updatedQueue);
+    setPreparedRecipe([...preparedRecipe, deletedRecipe]);
+  }
+
+  const calculateTimeAndCalories = (time, calories) => {
+    setTotalTime(totalTime + time);
+    setTotalCalories(totalCalories + calories);
+  }
 
 
   return (
@@ -41,7 +57,12 @@ function App() {
             ></Recipes>
 
            {/* side bar */}
-           <Sidebar recipeClick={recipeClick}
+           <Sidebar handleRemove={handleRemove}
+           recipeClick={recipeClick}
+           preparedRecipe={preparedRecipe}
+           calculateTimeAndCalories={calculateTimeAndCalories}
+           totalTime={totalTime}
+           totalCalories={totalCalories}
            ></Sidebar>
 
         </section>
