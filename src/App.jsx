@@ -1,13 +1,15 @@
-import './App.css'
+import Header from "./Components/Header/Header";
 
 function App() {
-  
   return (
     <>
-      <h1 className='text-2xl text-center mt-10'>Chef's Table</h1>
-      
+      <section className='max-w-screen-2xl mx-auto'>
+
+        <Header></Header>
+        
+      </section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
